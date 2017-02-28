@@ -1,9 +1,10 @@
+import requests
 import facebook as fb
 
 
 def gen_token(app_id, app_secret):
     """Gerando o token."""
-    gen = 'access_token?client_id={app_id}&client_secret={app_secret}&grant_type=client_credentials'
+    gen = 'client_id={app_id}&client_secret={app_secret}&grant_type=client_credentials'
     token = gen.format(app_id=app_id, app_secret=app_secret)
     return token
 
@@ -12,13 +13,16 @@ def access_token():
     """Obtendo acesso."""
     app_id = '181088029053296'
     app_secret = '4c40975da262042768b10273193e4f30'
-    API_URL = 'https://graph.facebook.com/v2.8/oauth/'
+    API_URL = 'https://graph.facebook.com/v2.8/oauth/access_token?'
 
-    get_acess = API_URL + gen_token(app_id, app_secret)
-    return get_acess
+    get_access = API_URL + gen_token(app_id, app_secret)
+    return get_access
 
-# print(access_token())
-graph = fb.GraphAPI(access_token=access_token(), version='2.7')
-fb_id = '119720635034771'
-info = graph.get_objects(fb_id)
-print(info['public_profile'])
+
+r = requests.get(access_token())
+json = r.json()
+token = json['access_token']
+graph = fb.GraphAPI(access_token=token, version='2.7')
+fb_id = '1183621847'
+info = graph.get_object(fb_id, fields='gender,first_name,last_name')
+print(info)
