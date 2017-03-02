@@ -24,10 +24,11 @@ def obter_dados_userFb(fb_id):
     token = json['access_token']
     graph = fb.GraphAPI(access_token=token, version='2.7')
     dados = graph.get_object(fb_id, fields='gender,first_name,last_name')
-    name = dados.get('first_name', 'undefined') + dados.get('last_name', 'undefined')
+    nome = dados.get('first_name', 'undefined')
+    sobrenome = dados.get('last_name', 'undefined')
     data = {
         'fb_id': fb_id,
-        'name': name,
+        'name': nome + ' ' + sobrenome,
         'username': dados.get('first_name', 'undefined'),
         'gender': dados.get('gender', 'undefined'),
     }
