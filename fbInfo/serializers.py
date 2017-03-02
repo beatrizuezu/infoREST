@@ -7,8 +7,8 @@ class UserFbSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserFb
-        fields = ['fb_id']
+        fields = ('fb_id',)
 
-    def create(self, fb_id, validated_data):
-        dados = obter_dados_userFb(fb_id)
-        return dados(**validated_data)
+    def create(self, instance):
+        dados = obter_dados_userFb(instance['fb_id'])
+        return UserFb.objects.create(**dados)
