@@ -27,14 +27,14 @@ pip install -r requirements.txt
  ./manage.py runserver
  ```
 
- ## CURL
+## CURL
 
- ### POST
+### POST
  ```console
  curl -X POST -F fb_id=562073097 -u admin:password123 http://127.0.0.1:8000/UserFb/
   ```
 
- ### GET
+### GET
  ```console
  curl -X GET -F fb_id=562073097 -u admin:password123 http://127.0.0.1:8000/UserFb/
   ```
