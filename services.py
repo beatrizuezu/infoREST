@@ -18,11 +18,12 @@ def access_token():
     get_access = API_URL + gen_token(app_id, app_secret)
     return get_access
 
+def get_dados_userFb(fb_id):
+    r = requests.get(access_token())
+    json = r.json()
+    token = json['access_token']
+    graph = fb.GraphAPI(access_token=token, version='2.7')
+    dados = graph.get_object(fb_id, fields='gender,first_name,last_name')
+    return dados
 
-r = requests.get(access_token())
-json = r.json()
-token = json['access_token']
-graph = fb.GraphAPI(access_token=token, version='2.7')
-fb_id = '562073097'
-info = graph.get_object(fb_id, fields='gender,first_name,last_name')
-print(info)
+# fb_id = '562073097'
