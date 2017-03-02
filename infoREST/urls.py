@@ -3,7 +3,7 @@ from rest_framework import routers
 from fbInfo import views
 
 router = routers.DefaultRouter()
-router.register(r'UserFb', views.UserViewSet)
+router.register(r'UserFb', views.UserFbViewSet)
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
