@@ -6,6 +6,5 @@ router = routers.DefaultRouter()
 router.register(r'UserFb', views.UserFbViewSet)
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
     url(r'^api/', include('fbInfo.urls', namespace='rest_framework'))
 ]
