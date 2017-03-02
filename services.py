@@ -18,7 +18,7 @@ def access_token():
     get_access = API_URL + gen_token(app_id, app_secret)
     return get_access
 
-def get_dados_userFb(fb_id):
+def obter_dados_userFb(fb_id):
     r = requests.get(access_token())
     json = r.json()
     token = json['access_token']
