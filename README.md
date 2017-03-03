@@ -26,7 +26,9 @@ pip install -r requirements.txt
 ```console
  ./manage.py runserver
  ```
-
+Abrir a url: http://127.0.0.1:8000/api/login/?next=/user_fb/
+user: admin
+senha: password123
 ## CURL
 
 ### POST
