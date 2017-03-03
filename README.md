@@ -36,5 +36,5 @@ pip install -r requirements.txt
 
 ### GET
  ```console
- curl -X GET -F fb_id=562073097 -u admin:password123 http://127.0.0.1:8000/UserFb/
+ curl -X GET -u admin:password123 http://127.0.0.1:8000/UserFb/
   ```
