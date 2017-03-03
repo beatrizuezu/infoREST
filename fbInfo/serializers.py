@@ -10,9 +10,14 @@ class UserFbSerializer(serializers.ModelSerializer):
         fields = ('fb_id', 'username', 'name', 'gender')
         read_only_fields = ('username', 'name', 'gender')
 
+    def validate_fb_id(self, fb_id):
+        try:
+            self.dados = obter_dados_userFb(fb_id)
+        except:
+            raise serializers.Validationerror('Facebook user doesn\'t exists')
+
     def create(self, instance):
-        dados = obter_dados_userFb(instance['fb_id'])
-        return UserFb.objects.create(**dados)
+        return UserFb.objects.create(**self.dados)
 
     def read(self, instance):
         return self.list(instance)
