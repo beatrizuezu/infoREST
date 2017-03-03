@@ -3,7 +3,7 @@ from rest_framework import routers
 from fbInfo import views, urls
 
 router = routers.DefaultRouter()
-router.register(r'UserFb', views.UserFbViewSet)
+router.register(r'user_fb', views.UserFbViewSet)
 
 urlpatterns = [
     url(r'^', include(router.urls)),
