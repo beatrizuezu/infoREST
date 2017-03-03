@@ -38,3 +38,8 @@ pip install -r requirements.txt
  ```console
  curl -X GET -u admin:password123 http://127.0.0.1:8000/UserFb/
   ```
+
+### DELETE
+```console
+curl -X DELETE -u admin:password123 http://127.0.0.1:8000/UserFb/562073097/
+ ```
